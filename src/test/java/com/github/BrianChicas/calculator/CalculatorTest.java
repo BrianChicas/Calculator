@@ -42,5 +42,26 @@ class CalculatorTest {
         assertEquals("Cannot divide by zero", exception.getMessage());
     }
 
+    @Test
+    @DisplayName("Test For Simple Multiplication")
+    void testMultiply() {
+        assertEquals(6, calculator.multiply(2, 3), "2 times 3");
+        assertEquals(-8, calculator.multiply(-4, 2), "-4 times 2");
+    }
+
+    @Test
+    @DisplayName("Test For Fibonacci Sequence")
+    void testFibonacci() {
+        assertEquals(0, calculator.fibonacci(0), "Fibonacci of 0");
+        assertEquals(1, calculator.fibonacci(1), "Fibonacci of 1");
+        assertEquals(21, calculator.fibonacci(8), "Fibonacci of 8");
+    }
+
+    @Test
+    @DisplayName("Fibonacci should throw IllegalArgumentException for negative input")
+    void testFibonacciNegative() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> calculator.fibonacci(-5));
+        assertEquals("Input cannot be negative", exception.getMessage());
+    }
 
 }//end CalculatorTest

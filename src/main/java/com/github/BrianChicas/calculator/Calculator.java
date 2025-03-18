@@ -9,11 +9,22 @@ public class Calculator {
         return a - b;
     }
 
+    public int multiply(int a, int b) {
+        return a * b;
+    }
+
     public int divide(int a, int b) {
         if (b == 0) {
             throw new ArithmeticException("Cannot divide by zero");
         }
         return a / b;
+    }
+
+    public int fibonacci(int n) {
+        if (n < 0) throw new IllegalArgumentException("Input cannot be negative");
+        if (n == 0) return 0;
+        if (n == 1) return 1;
+        return fibonacci(n - 1) + fibonacci(n - 2);
     }
 }
 
